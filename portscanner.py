@@ -96,6 +96,20 @@ def getting_ports():
             new_ports.append(port)
     return new_ports
 
+def getting_target():
+    '''Check for the IP/hostname given by the user'''
+    target = ARGS.target.strip()
+    try:
+        socket.inet_aton(target)
+        return target
+    except (socket.error, OSError):
+        try:
+            socket.gethostbyname(target)
+            return target
+        except (socket.error, socket.gaierror):
+            print('Unable to find the IP from the hostname')
+            exit()
+
 if __name__ == '__main__':
     START_TIME = time() # Getting the time before starting, to calculate the amount it took to run
     # The locks are needed to not screw up a variable or the print function
@@ -103,7 +117,7 @@ if __name__ == '__main__':
     PORT_LOCK = Lock()
     PORT_ADDING_LOCK = Lock()
     ARGS = arguments()
-    TARGET = ARGS.target.strip() # Getting the IP or hostname to scan
+    TARGET = getting_target() # Getting the IP or hostname to scan
     FANCY_HEADER = '='*(54)
     print(FANCY_HEADER+'\nScanning ports for: '+TARGET+'\nThe service '
           'is based on the PORT, not actually checked\n'+FANCY_HEADER)
@@ -119,4 +133,3 @@ if __name__ == '__main__':
 
     print('[!] Found {} ports open'.format(PORTS_FOUND))
     print('[DONE] The scan took {0:.3f} seconds'.format(time() - START_TIME))
-
