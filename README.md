@@ -5,6 +5,7 @@ Portscanning tool written in python 3 with the use of threading to make it faste
 usage: portscanner.py [-h] [-u] [-p PORT] target
 
 positional arguments:
+
   target                The IP address or hostname you would like to scan
 
 optional arguments:
