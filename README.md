@@ -8,6 +8,7 @@ positional arguments:
   target                The IP address or hostname you would like to scan
 
 optional arguments:
+
   -h, --help            show this help message and exit
   
   -u, --udp             to include UDP ports as well
