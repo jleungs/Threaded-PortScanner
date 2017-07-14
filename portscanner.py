@@ -3,7 +3,7 @@
 Simple portscanning tool written in python 3 with the use of threading to
 make it faster and more efficient.
 Written by Jonathan Leung
-TODO: Generate an report argument and function, scanning multiple hosts(a subnet)
+TO DO: 1. Generate an report argument and function, 2. scanning multiple hosts(a subnet)
 '''
 import argparse
 import socket
