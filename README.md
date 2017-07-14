@@ -10,4 +10,4 @@ Portscanning tool written in python 3 with the use of threading to make it faste
 ##### optional arguments:
 - [x] -h, --help - show this help message and exit
 - [x] -u, --udp - to include UDP ports as well
-- [x] -p PORT, --port PORT - specify the ports you want to scan divided by commas(,) or dashes(-) if you want an range, example: portscan -p 1-1024,666,1337 10.3.3.3
+- [x] -p PORT, --port PORT - specify the ports you want to scan divided by commas(,) or dashes(-) if you want an range, example: *portscan -p 1-1024,666,1337 10.3.3.3*
