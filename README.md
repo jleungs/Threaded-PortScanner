@@ -13,4 +13,4 @@ Portscanning tool written in python 3 with the use of threading to make it faste
 - [x] -p PORT, --port PORT - specify the ports you want to scan divided by commas(,) or dashes(-) if you want an range, example: *portscan -p 1-1024,666,1337 10.3.3.3*
 
 ### Demo
-![Demo of the portscanner](https://github.com/jlhk/Threaded-PortScanner/blob/master/portscan_demo.gif)
+![Demo of the portscanner](https://github.com/jlhk/Threaded-PortScanner/blob/master/portscan_demo_v2.gif)
