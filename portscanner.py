@@ -16,14 +16,14 @@ def port_scan(port):
     found'''
     with PORT_LOCK:
         global PORTS_FOUND
-    # Getting the sockets for both UDP and TCP connections
+    # Getting the socket for TCP connections
     tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
         tcp_socket.connect((TARGET, port)) # Tries the connection
         with PRINT_LOCK:
             print('[TCP] Open port:', port, '| Service:',
                   socket.getservbyport(port, 'tcp'))
-        PORTS_FOUND += 1 # Counts the amount of ports opened
+        PORTS_FOUND += 1 # Counts the amount of ports found opened
         tcp_socket.close()
     except socket.error: # If the port is not opened, pass, do nothing
         pass
@@ -54,7 +54,7 @@ def arguments():
     return args # Returns the parser to easily use the arguments
 
 def threader(ports):
-    '''This initialize the threads to work on specific ports'''
+    '''This initialize the threads to work on specific ports for efficiency'''
     with PORT_LOCK:
         global PORT_COUNT
     for port in ports: # Loops the ports as an argument for port_scan
@@ -121,10 +121,8 @@ if __name__ == '__main__':
     FANCY_HEADER = '='*(54)
     print(FANCY_HEADER+'\nScanning ports for: '+TARGET+'\nThe service '
           'is based on the PORT, not actually checked\n'+FANCY_HEADER)
-    # Starts at 0 because it gets +1 before being used as an argument in the
-    # port_scan function, does not actually scan port 0
-    PORT_COUNT = 0
-    PORTS_FOUND = 0 # Counts the amount of ports scanned
+    PORT_COUNT = 0 # To keep track of amount of ports scanned
+    PORTS_FOUND = 0 # Counts the amount of ports found
     PORTS = getting_ports() # Getting a list of ports to scan
     for worker in range(300): # Starts 300 threads
 # Setting daemon to true so you only have to kill the main thread, to kill all
