@@ -1,5 +1,5 @@
 # Threaded-PortScanner
-Portscanning tool written in python 3 with the use of threading to make it faster and more efficient and argparse to easily scan ports from the terminal. Tried to follow PEP8 as much as possible
+Portscanning tool written in python 3 with the use of threading to make it faster and more efficient and argparse to easily scan ports from the terminal. Tried to follow PEP8 as much as possible. Tried and works on Linux and Windows.
 
 # Flags and usage
 *usage: portscanner.py [-h] [-u] [-p PORT] target*
